@@ -3,12 +3,6 @@ import { Manager } from 'socket.io-client';
 import { MainLayout } from './layouts';
 import { useAppSelector } from './redux/hooks';
 
-
-
-
-
-
-
 function App() {
   const [settings, setSettings] = useState(false);
   const theme = useAppSelector((state: any) => state.theme.value);

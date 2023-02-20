@@ -13,3 +13,5 @@
 
     # custom definition files
     /src/types/
+
+    /src/tailwind.config.js

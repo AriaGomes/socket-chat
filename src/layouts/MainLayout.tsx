@@ -1,3 +1,4 @@
+import React from 'react';
 import { SidebarLayout } from './SidebarLayout';
 import { profileSettingsBadge } from '../componenets';
 
