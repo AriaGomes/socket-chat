@@ -1,0 +1,17 @@
+{
+  "name": "socket-chat-backend",
+  "version": "0.1.0",
+  "description": "Backend for socket-chat made in express",
+  "main": "index.js",
+  "author": "AriaGomes",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "socket.io": "^4.6.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
