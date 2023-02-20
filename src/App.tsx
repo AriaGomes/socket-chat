@@ -3,14 +3,15 @@ import socketIO from 'socket.io-client';
 import { MainLayout } from './layouts';
 import { ChatLayout } from './layouts/ChatLayout';
 import { useAppSelector } from './redux/hooks';
+import { sidebarCollapsed } from './redux/slices/sidebarCollapsedSlice';
+
 
 export const socket = socketIO('http://localhost:4000');
-
 function App() {
-  const [settings, setSettings] = useState(false);
-  const theme = useAppSelector((state: any) => state.theme.value);
 
- 
+
+  const settings = useAppSelector((state: any) => state.settings.value);
+  console.log(settings);
 
   socket.on('connect', () => {
     console.log('connected');
@@ -18,7 +19,7 @@ function App() {
   
   return (
     <div>
-      <MainLayout main={settings ? '' : <ChatLayout />} setSettings={setSettings} />
+      <MainLayout main={settings ? '' : <ChatLayout />} />
     </div>
   );
 }

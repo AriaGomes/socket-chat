@@ -10,8 +10,7 @@ const [users, setUsers] = React.useState<any>([]);
 socket.on('connect', () => {
     setUsers((user: any) => [...user, socket.id]);
     
-    
-    console.log(socket.emit('users', socket.id));
+    socket.emit('users', socket.id);
 });
 
 

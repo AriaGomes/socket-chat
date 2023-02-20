@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import themeReducer from './slices/themeSlice';
 import sidebarCollapsedReducer from './slices/sidebarCollapsedSlice';
+import settingsReducer from './slices/settingsSlice';
 
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
     sidebarCollapsed: sidebarCollapsedReducer,
+    settings: settingsReducer,
   }
 });
 

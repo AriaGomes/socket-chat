@@ -2,29 +2,29 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
 
 // Define a type for the slice state
-interface SidebarCollapsedState {
+interface SettingsState {
   value: boolean
 }
 
 // Define the initial state using that type
-const initialState: SidebarCollapsedState = {
+const initialState: SettingsState = {
   value: false
 };
 
-export const sidebarCollapsedSlice = createSlice({
-  name: 'sidebarCollapsed',
+export const settingsSlice = createSlice({
+  name: 'settings',
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    toggleSidebar: (state) => {
+    toggleSettings: (state) => {
         state.value = !state.value;
         }
     },
 });
 
-export const { toggleSidebar } = sidebarCollapsedSlice.actions;
+export const { toggleSettings } = settingsSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
-export const sidebarCollapsed = (state: RootState) => state.sidebarCollapsed.value;
+export const settings = (state: RootState) => state.settings.value;
 
-export default sidebarCollapsedSlice.reducer;
+export default settingsSlice.reducer;

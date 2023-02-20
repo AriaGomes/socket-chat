@@ -17,6 +17,7 @@ const socketIO = require('socket.io')(http, {
 //Add this before the app.get() block
 socketIO.on('connection', (socket) => {
   console.log(`⚡: ${socket.id} user just connected!`);
+  console.log(socketIO.sockets.adapter.rooms);
   socket.on('disconnect', () => {
     console.log('🔥: A user disconnected');
   });
@@ -27,6 +28,14 @@ app.get('/api', (req, res) => {
     message: 'Hello world',
   });
 });
+
+//get users connected
+app.get('/api/users', (req, res) => {
+  res.json({
+    users: socketIO.sockets.adapter.rooms,
+  });
+});
+
 
 http.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
