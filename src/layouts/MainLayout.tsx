@@ -1,10 +1,9 @@
 import React from 'react';
-import { SidebarLayout } from './SidebarLayout';
-import { profileSettingsBadge } from '../componenets';
+import { SidebarLayout, SettingsLayout } from '.';
 import { useAppSelector } from '../redux/hooks';
 
 // sidebar and main are props that are passed to MainLayout JSX element
-export const MainLayout = ({ main, settings, setSettings }: { main: any, settings: any, setSettings: any }) => 
+export const MainLayout = ({ main, setSettings }: { main: any, setSettings: any }) => 
 
     
     
@@ -13,11 +12,11 @@ export const MainLayout = ({ main, settings, setSettings }: { main: any, setting
 
         <div className='dark:bg-black'>
             <div className='flex h-screen'>
-                <div className='dark:bg-[#2C2828] bg-gray-100 pr-3'>
-                <SidebarLayout profileSettingsBadge={profileSettingsBadge} />
+                <div className='dark:bg-[#2C2828] bg-gray-100 px-2 py-2'>
+                <SidebarLayout setSettings={setSettings} />
                 </div>
-                <div className='dark:bg-[#151313] bg-white '>
-                {settings === true ? 'settings' : main}
+                <div className='dark:bg-[#151313] bg-white px-2 py-2'>
+                {main}
                 </div>
             </div>
         </div>

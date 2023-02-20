@@ -1,2 +1,3 @@
 export * from './DarkModeSwitch';
-export * from './ProfileSettingsBadge';
+export * from './ProfileSettingsCard';
+export * from './UsersChannelsCard';
