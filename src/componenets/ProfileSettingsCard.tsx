@@ -8,12 +8,12 @@ export const ProfileSettingsCard = () => {
     const dispatch = useAppDispatch();
 
     const handleSidebarClick = () => {
-        dispatch(toggleSidebar())
-    }
+        dispatch(toggleSidebar());
+    };
 
     const handleSettingsClick = () => {
-        dispatch(toggleSettings())
-    }
+        dispatch(toggleSettings());
+    };
 
     
 
