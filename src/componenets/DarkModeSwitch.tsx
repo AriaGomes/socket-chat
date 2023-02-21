@@ -60,7 +60,7 @@ export const DarkModeSwitch = (props: any) => {
           {!isOn ? (
             <RiSunFill className="h-6 w-6 text-yellow-300" />
           ) : (
-            <RiMoonClearFill className="text-slate-200 h-6 w-6 text-white" />
+            <RiMoonClearFill className="h-6 w-6 text-white" />
           )}
         </motion.div>
       </motion.div>

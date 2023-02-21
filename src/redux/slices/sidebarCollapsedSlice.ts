@@ -3,12 +3,12 @@ import type { RootState } from '../store';
 
 // Define a type for the slice state
 interface SidebarCollapsedState {
-  value: boolean
+  value: any
 }
 
 // Define the initial state using that type
 const initialState: SidebarCollapsedState = {
-  value: false
+  value: localStorage.getItem('sidebarCollapsed') === 'true' ? true : false  || false
 };
 
 export const sidebarCollapsedSlice = createSlice({
@@ -18,6 +18,7 @@ export const sidebarCollapsedSlice = createSlice({
   reducers: {
     toggleSidebar: (state) => {
         state.value = !state.value;
+        localStorage.setItem('sidebarCollapsed', state.value);
         }
     },
 });

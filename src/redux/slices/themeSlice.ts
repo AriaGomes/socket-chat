@@ -20,9 +20,11 @@ export const themeSlice = createSlice({
     toggleTheme: (state) => {
         if (state.value === 'light') {
             state.value = 'dark';
+            
         } else {
             state.value = 'light';
         }
+        localStorage.setItem('theme', state.value);
         }
     },
 });

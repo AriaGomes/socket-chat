@@ -14,10 +14,19 @@ const socketIO = require('socket.io')(http, {
   }
 });
 
+let currentUsers = [];
+
 //Add this before the app.get() block
 socketIO.on('connection', (socket) => {
   console.log(`⚡: ${socket.id} user just connected!`);
-  console.log(socketIO.sockets.adapter.rooms);
+  const rooms = socketIO.sockets.adapter.rooms;
+
+  const roomList = Array.from(rooms).map(([id, value]) => {
+    return id;
+  });
+
+  currentUsers = roomList;
+
   socket.on('disconnect', () => {
     console.log('🔥: A user disconnected');
   });
@@ -31,9 +40,9 @@ app.get('/api', (req, res) => {
 
 //get users connected
 app.get('/api/users', (req, res) => {
-  res.json({
-    users: socketIO.sockets.adapter.rooms,
-  });
+  res.json(
+    { ids: currentUsers}
+  );
 });
 
 

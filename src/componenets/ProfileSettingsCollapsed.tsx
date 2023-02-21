@@ -3,7 +3,7 @@ import { useAppDispatch } from '../redux/hooks';
 import { toggleSidebar } from '../redux/slices/sidebarCollapsedSlice';
 import { toggleSettings } from '../redux/slices/settingsSlice';
 
-export const ProfileSettingsCard = () => {
+export const ProfileSettingsCardCollapsed = () => {
     
     const dispatch = useAppDispatch();
 
@@ -22,13 +22,13 @@ export const ProfileSettingsCard = () => {
     <div className='dark:bg-gray-800 bg-gray-200 dark:text-white rounded p-2 min-h-[100px] '>
         <div>
         <button type='submit' onClick={handleSidebarClick}>
-            sidebarCollapse
+            SC
         </button>
         </div>
 
         <div>
         <button type='submit' onClick={handleSettingsClick}>
-            settings
+            S
         </button>
         </div>
     </div>
@@ -36,4 +36,4 @@ export const ProfileSettingsCard = () => {
 
 };
  
-export default ProfileSettingsCard;
+export default ProfileSettingsCardCollapsed;

@@ -1,8 +1,6 @@
 import React from 'react';
-import { SidebarLayout, SettingsLayout } from '.';
-import { useAppSelector } from '../redux/hooks';
+import { SidebarLayout } from '.';
 
-// sidebar and main are props that are passed to MainLayout JSX element
 export const MainLayout = ({ main }: { main: any }) => 
 
     
@@ -15,7 +13,7 @@ export const MainLayout = ({ main }: { main: any }) =>
                 <div className='dark:bg-[#2C2828] bg-gray-100 px-2 py-2'>
                 <SidebarLayout />
                 </div>
-                <div className='dark:bg-[#151313] bg-white px-2 py-2'>
+                <div className='dark:bg-[#151313] bg-white px-2 py-2 w-full break-words overflow-x-hidden'>
                 {main}
                 </div>
             </div>
