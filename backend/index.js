@@ -16,19 +16,22 @@ const socketIO = require('socket.io')(http, {
 
 let currentUsers = [];
 
+
 //Add this before the app.get() block
 socketIO.on('connection', (socket) => {
   console.log(`⚡: ${socket.id} user just connected!`);
-  const rooms = socketIO.sockets.adapter.rooms;
-
-  const roomList = Array.from(rooms).map(([id, value]) => {
-    return id;
-  });
-
-  currentUsers = roomList;
+  
+  // Add user to currentUsers
+  currentUsers.push(socket.id);
+  // emit new list of users
+  socket.broadcast.emit('users', currentUsers);
 
   socket.on('disconnect', () => {
-    console.log('🔥: A user disconnected');
+    console.log(`⚡: ${socket.id} user just disconnected!`);
+    // Remove user from currentUsers
+    currentUsers = currentUsers.filter(id => id !== socket.id);
+    // emit new list of users
+    socket.broadcast.emit('users', currentUsers);
   });
 });
 

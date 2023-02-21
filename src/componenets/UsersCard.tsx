@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 
-export const UsersChannelsCard = (props: any) => {
+export const UsersCard = (props: any) => {
 const [users, setUsers] = React.useState<any>([]);
 axios.get('http://localhost:4000/api/users').then((res) => {
         setUsers(res.data.ids);
@@ -14,7 +14,9 @@ axios.get('http://localhost:4000/api/users').then((res) => {
     });
 return ( 
 
-        <div className='dark:bg-gray-800 bg-gray-200 p-2 rounded max-h-[90vh]'>
+        <div className='dark:bg-gray-800 bg-gray-200 p-2 rounded h-full grid grid-rows-2'>
+            <div className='row-span-1'>
+            <h1 className='dark:text-white'>Users Online:</h1>
             { users.map((user: any) => 
                  (
                     <div key={user} className='dark:text-white p-2 rounded'>
@@ -23,6 +25,9 @@ return (
                 )
             )
             }
+            </div>
+
+
 
 
 
@@ -32,4 +37,4 @@ return (
 };
         
 
-export default UsersChannelsCard;
+export default UsersCard;

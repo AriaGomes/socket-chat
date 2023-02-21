@@ -1,4 +1,4 @@
 export * from './DarkModeSwitch';
 export * from './ProfileSettingsCard';
-export * from './UsersChannelsCard';
-export * from './ProfileSettingsCollapsed';
+export * from './UsersCard';
+export * from './ChannelsCard';
