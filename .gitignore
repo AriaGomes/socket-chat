@@ -23,6 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 .eslintcache
 yarn.lock
+package-lock.json
 
 # Backend
 backend/node_modules

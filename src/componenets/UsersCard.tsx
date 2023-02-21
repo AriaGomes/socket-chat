@@ -14,7 +14,7 @@ axios.get('http://localhost:4000/api/users').then((res) => {
     });
 return ( 
 
-        <div className='dark:bg-gray-800 bg-gray-200 p-2 rounded h-full grid grid-rows-2'>
+        <div className='dark:bg-gray-800 bg-gray-200 p-2 rounded h-full grid grid-rows-2 overflow-y-auto'>
             <div className='row-span-1'>
             <h1 className='dark:text-white'>Users Online:</h1>
             { users.map((user: any) => 
