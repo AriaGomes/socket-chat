@@ -3,12 +3,33 @@
 export const Chat = () => {
     console.log('Chat');
     return (
-        <div className='dark:bg-[#151313] dark:text-white bg-white px-2 py-2'>
-            <div className='flex flex-col'>
-                Chat
-                  </div>
-                  </div>
-              
+
+        
+    <>
+    <div className="flex flex-col h-full">
+    <div className='dark:bg-black dark:text-white bg-white '>
+            Chat
+        </div>
+        
+       
+
+
+
+                
+                    <div className='h-full'>
+                        Chat stuff
+                    </div>
+         
+
+                <div className='bg-black sticky h-10'>
+                    chat box
+                </div>
+            </div>
+         
+            </>
+           
+
+
     );
 };
 

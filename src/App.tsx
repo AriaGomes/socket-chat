@@ -43,12 +43,9 @@ if (localStorage.getItem('sidebarCollapsed') === undefined) {
   };
   
   return (
-    
-    <div className='w-screen'>
     <motion.div transition={fadeIn} layout>
-      <MainLayout main={settings ? <SettingsLayout><Settings /></SettingsLayout> : <ChatLayout ><Chat /></ChatLayout>} />
+      <MainLayout main={settings ? <SettingsLayout /> : <ChatLayout /> } />
     </motion.div>
-    </div>
   );
 }
 

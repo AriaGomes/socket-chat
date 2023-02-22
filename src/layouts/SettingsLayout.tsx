@@ -1,10 +1,12 @@
 import React from 'react';
+import { Settings } from '../pages';
 
 export const SettingsLayout = ({ children } : any) => (
         <div className='dark:bg-black w-full'>
             <div>
-                <div className='dark:bg-[#151313] bg-white px-2 py-2'>
-                {children}
+                
+                <div className='dark:bg-[#151313] bg-white'>
+                    <Settings />
                 </div>
             </div>
         </div>
