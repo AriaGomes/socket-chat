@@ -17,15 +17,33 @@ const socketIO = require('socket.io')(http, {
 
 let currentUsers = [];
 
-
 //Add this before the app.get() block
 socketIO.on('connection', (socket) => {
   console.log(`⚡: ${socket.id} user just connected!`);
+
+  socket.on('chat', (message) => {
+    console.log('message received:', message);
+    socketIO.emit('chat', message, socket.id);
+  });
+
+  socket.on('typing', (id) => {
+    console.log('typing received:', id);
+    socketIO.emit('typing', id);
+  });
+
+  socket.on('stopTyping', (id) => {
+    console.log('stopTyping received:', id);
+    socketIO.emit('stopTyping', id);
+  });
+
+
+
   
   // Add user to currentUsers
   currentUsers.push(socket.id);
   // emit new list of users
   socket.emit('users', currentUsers);
+
 
   socket.on('disconnect', () => {
     console.log(`⚡: ${socket.id} user just disconnected!`);
@@ -34,11 +52,14 @@ socketIO.on('connection', (socket) => {
     // emit new list of users
     socket.emit('users', currentUsers);
   });
+
+  
+
 });
 
 app.get('/api', (req, res) => {
   res.json({
-    message: 'Hello world',
+    status: 'ok',
   });
 });
 
@@ -48,7 +69,6 @@ app.get('/api/users', (req, res) => {
     { ids: currentUsers}
   );
 });
-
 
 
 

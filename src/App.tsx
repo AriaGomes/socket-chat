@@ -29,23 +29,11 @@ if (localStorage.getItem('sidebarCollapsed') === undefined) {
     console.log('connected');
   });
   
-  // fade in animation for the main layout delay of 0.5s
-  const fadeIn = {
-    initial: {
-      opacity: 0,
-    },
-    animate: {
-      opacity: 1,
-      transition: {
-        delay: 60,
-      },
-    },
-  };
   
   return (
-    <motion.div transition={fadeIn} layout>
+    <div >
       <MainLayout main={settings ? <SettingsLayout /> : <ChatLayout /> } />
-    </motion.div>
+    </div>
   );
 }
 

@@ -2,6 +2,9 @@ import React from 'react';
 import axios from 'axios';
 
 
+const handleUserClick = (e: any) => {
+    console.log(e.target.innerHTML);
+}
 
 
 export const UsersCard = (props: any) => {
@@ -20,7 +23,9 @@ return (
             { users.map((user: any) => 
                  (
                     <div key={user} className='dark:text-white p-2 rounded'>
+                        <a onClick={handleUserClick}>
                         {user}
+                        </a>
                     </div>
                 )
             )
